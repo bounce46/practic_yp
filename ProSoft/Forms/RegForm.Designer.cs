@@ -75,9 +75,9 @@
             // 
             // buttonBack
             // 
-            this.buttonBack.Location = new System.Drawing.Point(153, 368);
+            this.buttonBack.Location = new System.Drawing.Point(6, 390);
             this.buttonBack.Name = "buttonBack";
-            this.buttonBack.Size = new System.Drawing.Size(154, 30);
+            this.buttonBack.Size = new System.Drawing.Size(103, 30);
             this.buttonBack.TabIndex = 16;
             this.buttonBack.Text = "Вернуться";
             this.buttonBack.UseVisualStyleBackColor = true;
