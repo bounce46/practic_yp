@@ -57,24 +57,20 @@ namespace ProSoft.Forms
             } 
         }
 
-        private void buttonRegister_Click(object sender, EventArgs e)
+        private void checkBoxViewPass_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxViewPass.Checked)
+                textBoxPassword.UseSystemPasswordChar = false;
+            else
+                textBoxPassword.UseSystemPasswordChar = true;
+        }
+
+        private void linkLabelRegister_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             RegForm regForm = new RegForm();
             this.Hide();
             regForm.ShowDialog();
             this.Show();
-        }
-
-        private void checkBoxViewPass_CheckedChanged(object sender, EventArgs e)
-        {
-            if (checkBoxViewPass.Checked)
-            {
-                textBoxPassword.UseSystemPasswordChar = false;
-            }
-            else
-            {
-                textBoxPassword.UseSystemPasswordChar = true;
-            }
         }
     }
 }

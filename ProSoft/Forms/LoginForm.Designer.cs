@@ -29,20 +29,20 @@
         private void InitializeComponent()
         {
             this.groupBoxLogin = new System.Windows.Forms.GroupBox();
-            this.buttonRegister = new System.Windows.Forms.Button();
             this.buttonLogIn = new System.Windows.Forms.Button();
             this.checkBoxViewPass = new System.Windows.Forms.CheckBox();
             this.labelPassword = new System.Windows.Forms.Label();
             this.labelLogin = new System.Windows.Forms.Label();
             this.textBoxPassword = new System.Windows.Forms.TextBox();
             this.textBoxLogin = new System.Windows.Forms.TextBox();
+            this.linkLabelRegister = new System.Windows.Forms.LinkLabel();
             this.groupBoxLogin.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBoxLogin
             // 
             this.groupBoxLogin.BackColor = System.Drawing.SystemColors.Control;
-            this.groupBoxLogin.Controls.Add(this.buttonRegister);
+            this.groupBoxLogin.Controls.Add(this.linkLabelRegister);
             this.groupBoxLogin.Controls.Add(this.buttonLogIn);
             this.groupBoxLogin.Controls.Add(this.checkBoxViewPass);
             this.groupBoxLogin.Controls.Add(this.labelPassword);
@@ -55,16 +55,6 @@
             this.groupBoxLogin.TabIndex = 0;
             this.groupBoxLogin.TabStop = false;
             this.groupBoxLogin.Text = "Авторизация";
-            // 
-            // buttonRegister
-            // 
-            this.buttonRegister.Location = new System.Drawing.Point(137, 238);
-            this.buttonRegister.Name = "buttonRegister";
-            this.buttonRegister.Size = new System.Drawing.Size(154, 30);
-            this.buttonRegister.TabIndex = 6;
-            this.buttonRegister.Text = "Регистрация";
-            this.buttonRegister.UseVisualStyleBackColor = true;
-            this.buttonRegister.Click += new System.EventHandler(this.buttonRegister_Click);
             // 
             // buttonLogIn
             // 
@@ -120,6 +110,17 @@
             this.textBoxLogin.Size = new System.Drawing.Size(154, 30);
             this.textBoxLogin.TabIndex = 0;
             // 
+            // linkLabelRegister
+            // 
+            this.linkLabelRegister.AutoSize = true;
+            this.linkLabelRegister.Location = new System.Drawing.Point(158, 235);
+            this.linkLabelRegister.Name = "linkLabelRegister";
+            this.linkLabelRegister.Size = new System.Drawing.Size(105, 23);
+            this.linkLabelRegister.TabIndex = 7;
+            this.linkLabelRegister.TabStop = true;
+            this.linkLabelRegister.Text = "Регистрация";
+            this.linkLabelRegister.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelRegister_LinkClicked);
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 23F);
@@ -146,6 +147,6 @@
         private System.Windows.Forms.Label labelPassword;
         private System.Windows.Forms.Label labelLogin;
         private System.Windows.Forms.Button buttonLogIn;
-        private System.Windows.Forms.Button buttonRegister;
+        private System.Windows.Forms.LinkLabel linkLabelRegister;
     }
 }
