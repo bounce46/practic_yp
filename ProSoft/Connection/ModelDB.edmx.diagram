@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="08028da3e7de44efbc1914996c5e8c08" Name="Diagram1">
+        <EntityTypeShape EntityType="ProSoftModel.adminTable" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProSoftModel.orderTable" Width="1.5" PointX="8.25" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProSoftModel.partnerTable" Width="1.5" PointX="0.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProSoftModel.productTable" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProSoftModel.sexTable" Width="1.5" PointX="0.75" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProSoftModel.statusTable" Width="1.5" PointX="3.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProSoftModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProSoftModel.userTable" Width="1.5" PointX="6" PointY="4.125" IsExpanded="true" />
+        <AssociationConnector Association="ProSoftModel.FK_adminTable_sexTable" ManuallyRouted="false" />
+        <AssociationConnector Association="ProSoftModel.FK_orderTable_productTable" ManuallyRouted="false" />
+        <AssociationConnector Association="ProSoftModel.FK_orderTable_userTable" ManuallyRouted="false" />
+        <AssociationConnector Association="ProSoftModel.FK_userTable_sexTable" ManuallyRouted="false" />
+        <AssociationConnector Association="ProSoftModel.FK_userTable_statusTable" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

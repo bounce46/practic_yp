@@ -1,0 +1,462 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище ProSoftModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="adminTable">
+          <Key>
+            <PropertyRef Name="id_admin" />
+          </Key>
+          <Property Name="id_admin" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="first_name" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="last_name" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="login" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="password" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="id_sex" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="orderTable">
+          <Key>
+            <PropertyRef Name="id_order" />
+          </Key>
+          <Property Name="id_order" Type="int" Nullable="false" />
+          <Property Name="id_user" Type="int" Nullable="false" />
+          <Property Name="id_product" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="partnerTable">
+          <Key>
+            <PropertyRef Name="id_partner" />
+          </Key>
+          <Property Name="id_partner" Type="int" Nullable="false" />
+          <Property Name="company_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="number_phone" Type="nvarchar" MaxLength="11" Nullable="false" />
+        </EntityType>
+        <EntityType Name="productTable">
+          <Key>
+            <PropertyRef Name="id_product" />
+          </Key>
+          <Property Name="id_product" Type="int" Nullable="false" />
+          <Property Name="product_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="product_description" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="product_price" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sexTable">
+          <Key>
+            <PropertyRef Name="id_sex" />
+          </Key>
+          <Property Name="id_sex" Type="int" Nullable="false" />
+          <Property Name="sex_name" Type="nvarchar" MaxLength="15" Nullable="false" />
+        </EntityType>
+        <EntityType Name="statusTable">
+          <Key>
+            <PropertyRef Name="id_status" />
+          </Key>
+          <Property Name="id_status" Type="int" Nullable="false" />
+          <Property Name="status_name" Type="nvarchar" MaxLength="25" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="userTable">
+          <Key>
+            <PropertyRef Name="id_user" />
+          </Key>
+          <Property Name="id_user" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="first_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="last_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="father_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="number_phone" Type="nvarchar" MaxLength="11" Nullable="false" />
+          <Property Name="login" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="password" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="id_sex" Type="int" Nullable="false" />
+          <Property Name="id_status" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_adminTable_sexTable">
+          <End Role="sexTable" Type="Self.sexTable" Multiplicity="1" />
+          <End Role="adminTable" Type="Self.adminTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sexTable">
+              <PropertyRef Name="id_sex" />
+            </Principal>
+            <Dependent Role="adminTable">
+              <PropertyRef Name="id_sex" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_orderTable_productTable">
+          <End Role="productTable" Type="Self.productTable" Multiplicity="1" />
+          <End Role="orderTable" Type="Self.orderTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="productTable">
+              <PropertyRef Name="id_product" />
+            </Principal>
+            <Dependent Role="orderTable">
+              <PropertyRef Name="id_product" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_orderTable_userTable">
+          <End Role="userTable" Type="Self.userTable" Multiplicity="1" />
+          <End Role="orderTable" Type="Self.orderTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="userTable">
+              <PropertyRef Name="id_user" />
+            </Principal>
+            <Dependent Role="orderTable">
+              <PropertyRef Name="id_user" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_userTable_sexTable">
+          <End Role="sexTable" Type="Self.sexTable" Multiplicity="1" />
+          <End Role="userTable" Type="Self.userTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sexTable">
+              <PropertyRef Name="id_sex" />
+            </Principal>
+            <Dependent Role="userTable">
+              <PropertyRef Name="id_sex" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_userTable_statusTable">
+          <End Role="statusTable" Type="Self.statusTable" Multiplicity="1" />
+          <End Role="userTable" Type="Self.userTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="statusTable">
+              <PropertyRef Name="id_status" />
+            </Principal>
+            <Dependent Role="userTable">
+              <PropertyRef Name="id_status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище ProSoftModelContainer">
+          <EntitySet Name="adminTable" EntityType="Self.adminTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="orderTable" EntityType="Self.orderTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="partnerTable" EntityType="Self.partnerTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="productTable" EntityType="Self.productTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sexTable" EntityType="Self.sexTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="statusTable" EntityType="Self.statusTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="userTable" EntityType="Self.userTable" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_adminTable_sexTable" Association="Self.FK_adminTable_sexTable">
+            <End Role="sexTable" EntitySet="sexTable" />
+            <End Role="adminTable" EntitySet="adminTable" />
+          </AssociationSet>
+          <AssociationSet Name="FK_orderTable_productTable" Association="Self.FK_orderTable_productTable">
+            <End Role="productTable" EntitySet="productTable" />
+            <End Role="orderTable" EntitySet="orderTable" />
+          </AssociationSet>
+          <AssociationSet Name="FK_orderTable_userTable" Association="Self.FK_orderTable_userTable">
+            <End Role="userTable" EntitySet="userTable" />
+            <End Role="orderTable" EntitySet="orderTable" />
+          </AssociationSet>
+          <AssociationSet Name="FK_userTable_sexTable" Association="Self.FK_userTable_sexTable">
+            <End Role="sexTable" EntitySet="sexTable" />
+            <End Role="userTable" EntitySet="userTable" />
+          </AssociationSet>
+          <AssociationSet Name="FK_userTable_statusTable" Association="Self.FK_userTable_statusTable">
+            <End Role="statusTable" EntitySet="statusTable" />
+            <End Role="userTable" EntitySet="userTable" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ProSoftModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="adminTable">
+          <Key>
+            <PropertyRef Name="id_admin" />
+          </Key>
+          <Property Name="id_admin" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="first_name" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="last_name" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="login" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="id_sex" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="sexTable" Relationship="Self.FK_adminTable_sexTable" FromRole="adminTable" ToRole="sexTable" />
+        </EntityType>
+        <EntityType Name="orderTable">
+          <Key>
+            <PropertyRef Name="id_order" />
+          </Key>
+          <Property Name="id_order" Type="Int32" Nullable="false" />
+          <Property Name="id_user" Type="Int32" Nullable="false" />
+          <Property Name="id_product" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="productTable" Relationship="Self.FK_orderTable_productTable" FromRole="orderTable" ToRole="productTable" />
+          <NavigationProperty Name="userTable" Relationship="Self.FK_orderTable_userTable" FromRole="orderTable" ToRole="userTable" />
+        </EntityType>
+        <EntityType Name="partnerTable">
+          <Key>
+            <PropertyRef Name="id_partner" />
+          </Key>
+          <Property Name="id_partner" Type="Int32" Nullable="false" />
+          <Property Name="company_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="number_phone" Type="String" MaxLength="11" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="productTable">
+          <Key>
+            <PropertyRef Name="id_product" />
+          </Key>
+          <Property Name="id_product" Type="Int32" Nullable="false" />
+          <Property Name="product_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="product_description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="product_price" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="orderTable" Relationship="Self.FK_orderTable_productTable" FromRole="productTable" ToRole="orderTable" />
+        </EntityType>
+        <EntityType Name="sexTable">
+          <Key>
+            <PropertyRef Name="id_sex" />
+          </Key>
+          <Property Name="id_sex" Type="Int32" Nullable="false" />
+          <Property Name="sex_name" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="adminTable" Relationship="Self.FK_adminTable_sexTable" FromRole="sexTable" ToRole="adminTable" />
+          <NavigationProperty Name="userTable" Relationship="Self.FK_userTable_sexTable" FromRole="sexTable" ToRole="userTable" />
+        </EntityType>
+        <EntityType Name="statusTable">
+          <Key>
+            <PropertyRef Name="id_status" />
+          </Key>
+          <Property Name="id_status" Type="Int32" Nullable="false" />
+          <Property Name="status_name" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="userTable" Relationship="Self.FK_userTable_statusTable" FromRole="statusTable" ToRole="userTable" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="userTable">
+          <Key>
+            <PropertyRef Name="id_user" />
+          </Key>
+          <Property Name="id_user" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="first_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="last_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="father_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="number_phone" Type="String" MaxLength="11" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="login" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="id_sex" Type="Int32" Nullable="false" />
+          <Property Name="id_status" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="orderTable" Relationship="Self.FK_orderTable_userTable" FromRole="userTable" ToRole="orderTable" />
+          <NavigationProperty Name="sexTable" Relationship="Self.FK_userTable_sexTable" FromRole="userTable" ToRole="sexTable" />
+          <NavigationProperty Name="statusTable" Relationship="Self.FK_userTable_statusTable" FromRole="userTable" ToRole="statusTable" />
+        </EntityType>
+        <Association Name="FK_adminTable_sexTable">
+          <End Role="sexTable" Type="Self.sexTable" Multiplicity="1" />
+          <End Role="adminTable" Type="Self.adminTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sexTable">
+              <PropertyRef Name="id_sex" />
+            </Principal>
+            <Dependent Role="adminTable">
+              <PropertyRef Name="id_sex" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_orderTable_productTable">
+          <End Role="productTable" Type="Self.productTable" Multiplicity="1" />
+          <End Role="orderTable" Type="Self.orderTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="productTable">
+              <PropertyRef Name="id_product" />
+            </Principal>
+            <Dependent Role="orderTable">
+              <PropertyRef Name="id_product" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_orderTable_userTable">
+          <End Role="userTable" Type="Self.userTable" Multiplicity="1" />
+          <End Role="orderTable" Type="Self.orderTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="userTable">
+              <PropertyRef Name="id_user" />
+            </Principal>
+            <Dependent Role="orderTable">
+              <PropertyRef Name="id_user" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_userTable_sexTable">
+          <End Role="sexTable" Type="Self.sexTable" Multiplicity="1" />
+          <End Role="userTable" Type="Self.userTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sexTable">
+              <PropertyRef Name="id_sex" />
+            </Principal>
+            <Dependent Role="userTable">
+              <PropertyRef Name="id_sex" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_userTable_statusTable">
+          <End Role="statusTable" Type="Self.statusTable" Multiplicity="1" />
+          <End Role="userTable" Type="Self.userTable" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="statusTable">
+              <PropertyRef Name="id_status" />
+            </Principal>
+            <Dependent Role="userTable">
+              <PropertyRef Name="id_status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ProSoftEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="adminTable" EntityType="Self.adminTable" />
+          <EntitySet Name="orderTable" EntityType="Self.orderTable" />
+          <EntitySet Name="partnerTable" EntityType="Self.partnerTable" />
+          <EntitySet Name="productTable" EntityType="Self.productTable" />
+          <EntitySet Name="sexTable" EntityType="Self.sexTable" />
+          <EntitySet Name="statusTable" EntityType="Self.statusTable" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="userTable" EntityType="Self.userTable" />
+          <AssociationSet Name="FK_adminTable_sexTable" Association="Self.FK_adminTable_sexTable">
+            <End Role="sexTable" EntitySet="sexTable" />
+            <End Role="adminTable" EntitySet="adminTable" />
+          </AssociationSet>
+          <AssociationSet Name="FK_orderTable_productTable" Association="Self.FK_orderTable_productTable">
+            <End Role="productTable" EntitySet="productTable" />
+            <End Role="orderTable" EntitySet="orderTable" />
+          </AssociationSet>
+          <AssociationSet Name="FK_orderTable_userTable" Association="Self.FK_orderTable_userTable">
+            <End Role="userTable" EntitySet="userTable" />
+            <End Role="orderTable" EntitySet="orderTable" />
+          </AssociationSet>
+          <AssociationSet Name="FK_userTable_sexTable" Association="Self.FK_userTable_sexTable">
+            <End Role="sexTable" EntitySet="sexTable" />
+            <End Role="userTable" EntitySet="userTable" />
+          </AssociationSet>
+          <AssociationSet Name="FK_userTable_statusTable" Association="Self.FK_userTable_statusTable">
+            <End Role="statusTable" EntitySet="statusTable" />
+            <End Role="userTable" EntitySet="userTable" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище ProSoftModelContainer" CdmEntityContainer="ProSoftEntities">
+          <EntitySetMapping Name="adminTable">
+            <EntityTypeMapping TypeName="ProSoftModel.adminTable">
+              <MappingFragment StoreEntitySet="adminTable">
+                <ScalarProperty Name="id_admin" ColumnName="id_admin" />
+                <ScalarProperty Name="first_name" ColumnName="first_name" />
+                <ScalarProperty Name="last_name" ColumnName="last_name" />
+                <ScalarProperty Name="login" ColumnName="login" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="id_sex" ColumnName="id_sex" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="orderTable">
+            <EntityTypeMapping TypeName="ProSoftModel.orderTable">
+              <MappingFragment StoreEntitySet="orderTable">
+                <ScalarProperty Name="id_order" ColumnName="id_order" />
+                <ScalarProperty Name="id_user" ColumnName="id_user" />
+                <ScalarProperty Name="id_product" ColumnName="id_product" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="partnerTable">
+            <EntityTypeMapping TypeName="ProSoftModel.partnerTable">
+              <MappingFragment StoreEntitySet="partnerTable">
+                <ScalarProperty Name="id_partner" ColumnName="id_partner" />
+                <ScalarProperty Name="company_name" ColumnName="company_name" />
+                <ScalarProperty Name="number_phone" ColumnName="number_phone" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="productTable">
+            <EntityTypeMapping TypeName="ProSoftModel.productTable">
+              <MappingFragment StoreEntitySet="productTable">
+                <ScalarProperty Name="id_product" ColumnName="id_product" />
+                <ScalarProperty Name="product_name" ColumnName="product_name" />
+                <ScalarProperty Name="product_description" ColumnName="product_description" />
+                <ScalarProperty Name="product_price" ColumnName="product_price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sexTable">
+            <EntityTypeMapping TypeName="ProSoftModel.sexTable">
+              <MappingFragment StoreEntitySet="sexTable">
+                <ScalarProperty Name="id_sex" ColumnName="id_sex" />
+                <ScalarProperty Name="sex_name" ColumnName="sex_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="statusTable">
+            <EntityTypeMapping TypeName="ProSoftModel.statusTable">
+              <MappingFragment StoreEntitySet="statusTable">
+                <ScalarProperty Name="id_status" ColumnName="id_status" />
+                <ScalarProperty Name="status_name" ColumnName="status_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="ProSoftModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="userTable">
+            <EntityTypeMapping TypeName="ProSoftModel.userTable">
+              <MappingFragment StoreEntitySet="userTable">
+                <ScalarProperty Name="id_user" ColumnName="id_user" />
+                <ScalarProperty Name="first_name" ColumnName="first_name" />
+                <ScalarProperty Name="last_name" ColumnName="last_name" />
+                <ScalarProperty Name="father_name" ColumnName="father_name" />
+                <ScalarProperty Name="number_phone" ColumnName="number_phone" />
+                <ScalarProperty Name="login" ColumnName="login" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="id_sex" ColumnName="id_sex" />
+                <ScalarProperty Name="id_status" ColumnName="id_status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
