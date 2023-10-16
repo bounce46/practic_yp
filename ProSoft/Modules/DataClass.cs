@@ -10,6 +10,6 @@ namespace ProSoft.Modules
     static class DataClass
     {
         public static int IdUser;
-        public static int OrderAdd;
+        public static int idorder;
     }
 }

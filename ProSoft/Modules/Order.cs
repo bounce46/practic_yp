@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProSoft.Connection;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,6 +20,7 @@ namespace ProSoft.Modules
         private string Names;
         private string Description;
         private string Price;
+        private Button button;
         public string NameN
         {
             get { return Names; }
@@ -33,6 +35,19 @@ namespace ProSoft.Modules
         {
             get { return Description; }
             set { Description = value; labelOpis.Text = value; }
+        }
+        private void buttonAddCart_Click(object sender, EventArgs e)
+        {
+            Order order = new Order();
+            ProSoftEntities proSoftEntities = new ProSoftEntities();
+            var id_u = Convert.ToInt32(DataClass.IdUser);
+            var id_ord = Convert.ToInt32(DataClass.idorder);
+            proSoftEntities.orderTable.Add(new orderTable()
+            {
+                id_user = id_u,
+                id_product = 1,
+            });
+            proSoftEntities.SaveChanges();
         }
     }
 }

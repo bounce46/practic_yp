@@ -40,7 +40,7 @@
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(185, 63);
             this.buttonAdd.TabIndex = 1;
-            this.buttonAdd.Text = "добавить в карзину";
+            this.buttonAdd.Text = "перейти в карзину";
             this.buttonAdd.UseVisualStyleBackColor = true;
             this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             // 

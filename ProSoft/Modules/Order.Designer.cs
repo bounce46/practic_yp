@@ -32,6 +32,7 @@
             this.labelName = new System.Windows.Forms.Label();
             this.labelOpis = new System.Windows.Forms.Label();
             this.labelPrice = new System.Windows.Forms.Label();
+            this.buttonAddCart = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,7 +56,7 @@
             // labelOpis
             // 
             this.labelOpis.AutoSize = true;
-            this.labelOpis.Location = new System.Drawing.Point(169, 43);
+            this.labelOpis.Location = new System.Drawing.Point(169, 47);
             this.labelOpis.Name = "labelOpis";
             this.labelOpis.Size = new System.Drawing.Size(86, 23);
             this.labelOpis.TabIndex = 2;
@@ -64,24 +65,35 @@
             // labelPrice
             // 
             this.labelPrice.AutoSize = true;
-            this.labelPrice.Location = new System.Drawing.Point(431, 66);
+            this.labelPrice.Location = new System.Drawing.Point(169, 104);
             this.labelPrice.Name = "labelPrice";
             this.labelPrice.Size = new System.Drawing.Size(52, 23);
             this.labelPrice.TabIndex = 3;
             this.labelPrice.Text = "Цена:";
             // 
+            // buttonAddCart
+            // 
+            this.buttonAddCart.Location = new System.Drawing.Point(340, 104);
+            this.buttonAddCart.Name = "buttonAddCart";
+            this.buttonAddCart.Size = new System.Drawing.Size(182, 31);
+            this.buttonAddCart.TabIndex = 4;
+            this.buttonAddCart.Text = "Добавить в корзину";
+            this.buttonAddCart.UseVisualStyleBackColor = true;
+            this.buttonAddCart.Click += new System.EventHandler(this.buttonAddCart_Click);
+            // 
             // Order
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.buttonAddCart);
             this.Controls.Add(this.labelPrice);
             this.Controls.Add(this.labelOpis);
             this.Controls.Add(this.labelName);
             this.Controls.Add(this.pictureBox1);
             this.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "Order";
-            this.Size = new System.Drawing.Size(579, 150);
+            this.Size = new System.Drawing.Size(535, 150);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -94,5 +106,6 @@
         private System.Windows.Forms.Label labelName;
         private System.Windows.Forms.Label labelOpis;
         private System.Windows.Forms.Label labelPrice;
+        private System.Windows.Forms.Button buttonAddCart;
     }
 }

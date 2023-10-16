@@ -42,7 +42,6 @@ namespace ProSoft.Forms
                 {
                     MessageBox.Show("корзина пуста!");
                     return;
-
                 }
             }
         }

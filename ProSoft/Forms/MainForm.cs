@@ -21,13 +21,14 @@ namespace ProSoft.Forms
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            var idorder = DataClass.idorder;
             ProSoftEntities proSoftEntities = new ProSoftEntities();
             var product = proSoftEntities.productTable.ToList();
             for (int i = 0; i < product.Count; i++)
             {
                 Order orderItem = new Order();
                 orderItem.NameN = product[i].product_name;
-                orderItem.PriceP = "Цена: "+product[i].product_price+" рублей";
+                orderItem.PriceP = "Цена: " + product[i].product_price + " рублей";
                 orderPanel.Controls.Add(orderItem);
             }
         }
