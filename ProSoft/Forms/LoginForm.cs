@@ -1,4 +1,5 @@
 ﻿using ProSoft.Connection;
+using ProSoft.Modules;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -41,6 +42,7 @@ namespace ProSoft.Forms
                     if (textBoxLogin.Text == item.login &&
                         textBoxPassword.Text == item.password)
                     {
+                        DataClass.IdUser = item.id_user;
                         MessageBox.Show("Успешный вход", "Успех", MessageBoxButtons.OK);
                         MainForm mainForm = new MainForm();
                         this.Hide();

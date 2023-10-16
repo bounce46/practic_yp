@@ -1,6 +1,6 @@
 ﻿namespace ProSoft.Forms
 {
-    partial class MainForm
+    partial class CartForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,58 +28,48 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.buttonAdd = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.orderPanel = new System.Windows.Forms.FlowLayoutPanel();
-            this.panel1.SuspendLayout();
+            this.OrderPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.SuspendLayout();
-            // 
-            // buttonAdd
-            // 
-            this.buttonAdd.Location = new System.Drawing.Point(12, 379);
-            this.buttonAdd.Name = "buttonAdd";
-            this.buttonAdd.Size = new System.Drawing.Size(185, 63);
-            this.buttonAdd.TabIndex = 1;
-            this.buttonAdd.Text = "добавить в карзину";
-            this.buttonAdd.UseVisualStyleBackColor = true;
-            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.buttonAdd);
-            this.panel1.Location = new System.Drawing.Point(0, -4);
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.panel1.Location = new System.Drawing.Point(-2, -1);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(227, 457);
-            this.panel1.TabIndex = 2;
+            this.panel1.Size = new System.Drawing.Size(194, 455);
+            this.panel1.TabIndex = 0;
             // 
-            // orderPanel
+            // OrderPanel
             // 
-            this.orderPanel.AutoScroll = true;
-            this.orderPanel.Location = new System.Drawing.Point(233, -4);
-            this.orderPanel.Name = "orderPanel";
-            this.orderPanel.Size = new System.Drawing.Size(570, 457);
-            this.orderPanel.TabIndex = 3;
+            this.OrderPanel.AutoScroll = true;
+            this.OrderPanel.Dock = System.Windows.Forms.DockStyle.Right;
+            this.OrderPanel.Location = new System.Drawing.Point(198, 0);
+            this.OrderPanel.Name = "OrderPanel";
+            this.OrderPanel.Size = new System.Drawing.Size(602, 450);
+            this.OrderPanel.TabIndex = 1;
             // 
-            // MainForm
+            // CartForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.orderPanel);
+            this.Controls.Add(this.OrderPanel);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Margin = new System.Windows.Forms.Padding(5);
-            this.Name = "MainForm";
-            this.Text = "MainForm";
-            this.Load += new System.EventHandler(this.MainForm_Load);
-            this.panel1.ResumeLayout(false);
+            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.MinimumSize = new System.Drawing.Size(816, 489);
+            this.Name = "CartForm";
+            this.Text = "CartForm";
+            this.Load += new System.EventHandler(this.CartForm_Load);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.Button buttonAdd;
+
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.FlowLayoutPanel orderPanel;
+        private System.Windows.Forms.FlowLayoutPanel OrderPanel;
     }
 }
