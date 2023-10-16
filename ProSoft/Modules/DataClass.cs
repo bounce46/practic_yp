@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProSoft.Forms;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http.Headers;
@@ -10,6 +11,5 @@ namespace ProSoft.Modules
     static class DataClass
     {
         public static int IdUser;
-        public static int idorder;
     }
 }

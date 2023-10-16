@@ -77,7 +77,7 @@
             this.buttonAddCart.Name = "buttonAddCart";
             this.buttonAddCart.Size = new System.Drawing.Size(182, 31);
             this.buttonAddCart.TabIndex = 4;
-            this.buttonAddCart.Text = "Добавить в корзину";
+            this.buttonAddCart.Text = "Заказать";
             this.buttonAddCart.UseVisualStyleBackColor = true;
             this.buttonAddCart.Click += new System.EventHandler(this.buttonAddCart_Click);
             // 
@@ -106,6 +106,6 @@
         private System.Windows.Forms.Label labelName;
         private System.Windows.Forms.Label labelOpis;
         private System.Windows.Forms.Label labelPrice;
-        private System.Windows.Forms.Button buttonAddCart;
+        public System.Windows.Forms.Button buttonAddCart;
     }
 }

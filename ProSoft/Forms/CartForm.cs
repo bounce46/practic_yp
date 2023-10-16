@@ -23,25 +23,21 @@ namespace ProSoft.Forms
         {
             ProSoftEntities proSoftEntities = new ProSoftEntities();
             var memory = Convert.ToInt32(DataClass.IdUser);
-            var order = proSoftEntities.orderTable.ToList();
-            foreach (var item in proSoftEntities.orderTable)
+            var product = proSoftEntities.productTable.ToList();
+            
+            foreach(var item in proSoftEntities.orderTable)
             {
                 if (item.id_user == memory)
                 {
-                    for (int i = 0; i <= memory; i++)
-                    {
-                        Order orderItem = new Order();
-                        orderItem.NameN = "Наименование: "+order[i].productTable.product_name.ToString();
-                        orderItem.PriceP = "Цена: " + order[i].productTable.product_price+" рублей".ToString();
-                        orderItem.DescriptionD = "Описание: " + order[i].productTable.product_description.ToString();
-                        OrderPanel.Controls.Add(orderItem);
-                    }
-                    return;
+                    Order orderItem = new Order();
+                    orderItem.NameN = "Наименование: " + product[item.id_product-1].product_name.ToString();
+                    orderItem.PriceP = "Цена: " + product[item.id_product-1].product_price + " рублей".ToString();
+                    orderItem.DescriptionD = "Описание: " + product[item.id_product-1].product_description.ToString();
+                    orderItem.buttonAddCart.Visible = false;
+                    OrderPanel.Controls.Add(orderItem);
                 }
                 else
                 {
-                    MessageBox.Show("корзина пуста!");
-                    return;
                 }
             }
         }

@@ -21,7 +21,7 @@ namespace ProSoft.Forms
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            var idorder = DataClass.idorder;
+            //var idorder = DataClass.idorder;
             ProSoftEntities proSoftEntities = new ProSoftEntities();
             var product = proSoftEntities.productTable.ToList();
             for (int i = 0; i < product.Count; i++)
@@ -29,6 +29,7 @@ namespace ProSoft.Forms
                 Order orderItem = new Order();
                 orderItem.NameN = product[i].product_name;
                 orderItem.PriceP = "Цена: " + product[i].product_price + " рублей";
+                orderItem.Idsx = product[i].id_product;
                 orderPanel.Controls.Add(orderItem);
             }
         }
