@@ -52,9 +52,7 @@ namespace ProSoft.Forms
                 MessageBox.Show("Неправильный логин или пароль", "Ошибка", MessageBoxButtons.OK);
             }
             else
-            {
                 MessageBox.Show("Есть пустое поле", "Ошибка", MessageBoxButtons.OK);
-            } 
         }
 
         private void checkBoxViewPass_CheckedChanged(object sender, EventArgs e)
