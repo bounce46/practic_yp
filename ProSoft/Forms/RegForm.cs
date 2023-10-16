@@ -41,9 +41,7 @@ namespace ProSoft.Forms
                 
             }
             else
-            {
                 MessageBox.Show("Пустые обязательные поля", "Ошибка", MessageBoxButtons.OK);
-            }
         }
 
         private void buttonBack_Click(object sender, EventArgs e)
