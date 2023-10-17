@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegForm));
             this.groupBoxReg = new System.Windows.Forms.GroupBox();
             this.buttonBack = new System.Windows.Forms.Button();
             this.labelSex = new System.Windows.Forms.Label();
@@ -50,6 +51,7 @@
             // 
             // groupBoxReg
             // 
+            this.groupBoxReg.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(233)))), ((int)(((byte)(249)))));
             this.groupBoxReg.Controls.Add(this.buttonBack);
             this.groupBoxReg.Controls.Add(this.labelSex);
             this.groupBoxReg.Controls.Add(this.comboBoxSex);
@@ -75,12 +77,13 @@
             // 
             // buttonBack
             // 
+            this.buttonBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(117)))), ((int)(((byte)(238)))));
             this.buttonBack.Location = new System.Drawing.Point(6, 390);
             this.buttonBack.Name = "buttonBack";
-            this.buttonBack.Size = new System.Drawing.Size(103, 30);
+            this.buttonBack.Size = new System.Drawing.Size(154, 30);
             this.buttonBack.TabIndex = 16;
             this.buttonBack.Text = "Вернуться";
-            this.buttonBack.UseVisualStyleBackColor = true;
+            this.buttonBack.UseVisualStyleBackColor = false;
             this.buttonBack.Click += new System.EventHandler(this.buttonBack_Click);
             // 
             // labelSex
@@ -159,12 +162,13 @@
             // 
             // buttonReg
             // 
+            this.buttonReg.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(117)))), ((int)(((byte)(238)))));
             this.buttonReg.Location = new System.Drawing.Point(153, 332);
             this.buttonReg.Name = "buttonReg";
             this.buttonReg.Size = new System.Drawing.Size(154, 30);
             this.buttonReg.TabIndex = 7;
             this.buttonReg.Text = "Создать аккаунт";
-            this.buttonReg.UseVisualStyleBackColor = true;
+            this.buttonReg.UseVisualStyleBackColor = false;
             this.buttonReg.Click += new System.EventHandler(this.buttonReg_Click);
             // 
             // textBoxPassword
@@ -216,11 +220,13 @@
             this.ClientSize = new System.Drawing.Size(430, 450);
             this.Controls.Add(this.groupBoxReg);
             this.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(5);
             this.MaximumSize = new System.Drawing.Size(446, 489);
             this.MinimumSize = new System.Drawing.Size(446, 489);
             this.Name = "RegForm";
-            this.Text = "Регистрация";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "ProSoft - Регистрация";
             this.groupBoxReg.ResumeLayout(false);
             this.groupBoxReg.PerformLayout();
             this.ResumeLayout(false);

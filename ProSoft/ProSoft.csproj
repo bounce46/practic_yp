@@ -160,6 +160,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EntityDeploy Include="Connection\ModelDB.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
@@ -196,6 +197,9 @@
       <DependentUpon>ModelDB.edmx</DependentUpon>
       <LastGenOutput>ModelDB.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\free-icon-woman-8193922.png" />
+    <None Include="Resources\free-icon-young-man-8193910.png" />
+    <None Include="Resources\picture.png" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

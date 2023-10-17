@@ -28,20 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             this.groupBoxLogin = new System.Windows.Forms.GroupBox();
+            this.linkLabelRegister = new System.Windows.Forms.LinkLabel();
             this.buttonLogIn = new System.Windows.Forms.Button();
             this.checkBoxViewPass = new System.Windows.Forms.CheckBox();
             this.labelPassword = new System.Windows.Forms.Label();
             this.labelLogin = new System.Windows.Forms.Label();
             this.textBoxPassword = new System.Windows.Forms.TextBox();
             this.textBoxLogin = new System.Windows.Forms.TextBox();
-            this.linkLabelRegister = new System.Windows.Forms.LinkLabel();
             this.groupBoxLogin.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBoxLogin
             // 
-            this.groupBoxLogin.BackColor = System.Drawing.SystemColors.Control;
+            this.groupBoxLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(233)))), ((int)(((byte)(249)))));
             this.groupBoxLogin.Controls.Add(this.linkLabelRegister);
             this.groupBoxLogin.Controls.Add(this.buttonLogIn);
             this.groupBoxLogin.Controls.Add(this.checkBoxViewPass);
@@ -50,20 +51,34 @@
             this.groupBoxLogin.Controls.Add(this.textBoxPassword);
             this.groupBoxLogin.Controls.Add(this.textBoxLogin);
             this.groupBoxLogin.Location = new System.Drawing.Point(12, 12);
+            this.groupBoxLogin.MaximumSize = new System.Drawing.Size(406, 426);
+            this.groupBoxLogin.MinimumSize = new System.Drawing.Size(406, 426);
             this.groupBoxLogin.Name = "groupBoxLogin";
             this.groupBoxLogin.Size = new System.Drawing.Size(406, 426);
             this.groupBoxLogin.TabIndex = 0;
             this.groupBoxLogin.TabStop = false;
             this.groupBoxLogin.Text = "Авторизация";
             // 
+            // linkLabelRegister
+            // 
+            this.linkLabelRegister.AutoSize = true;
+            this.linkLabelRegister.Location = new System.Drawing.Point(158, 235);
+            this.linkLabelRegister.Name = "linkLabelRegister";
+            this.linkLabelRegister.Size = new System.Drawing.Size(105, 23);
+            this.linkLabelRegister.TabIndex = 7;
+            this.linkLabelRegister.TabStop = true;
+            this.linkLabelRegister.Text = "Регистрация";
+            this.linkLabelRegister.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelRegister_LinkClicked);
+            // 
             // buttonLogIn
             // 
+            this.buttonLogIn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(117)))), ((int)(((byte)(238)))));
             this.buttonLogIn.Location = new System.Drawing.Point(137, 202);
             this.buttonLogIn.Name = "buttonLogIn";
             this.buttonLogIn.Size = new System.Drawing.Size(154, 30);
             this.buttonLogIn.TabIndex = 5;
             this.buttonLogIn.Text = "Авторизоваться";
-            this.buttonLogIn.UseVisualStyleBackColor = true;
+            this.buttonLogIn.UseVisualStyleBackColor = false;
             this.buttonLogIn.Click += new System.EventHandler(this.buttonLogIn_Click);
             // 
             // checkBoxViewPass
@@ -110,17 +125,6 @@
             this.textBoxLogin.Size = new System.Drawing.Size(154, 30);
             this.textBoxLogin.TabIndex = 0;
             // 
-            // linkLabelRegister
-            // 
-            this.linkLabelRegister.AutoSize = true;
-            this.linkLabelRegister.Location = new System.Drawing.Point(158, 235);
-            this.linkLabelRegister.Name = "linkLabelRegister";
-            this.linkLabelRegister.Size = new System.Drawing.Size(105, 23);
-            this.linkLabelRegister.TabIndex = 7;
-            this.linkLabelRegister.TabStop = true;
-            this.linkLabelRegister.Text = "Регистрация";
-            this.linkLabelRegister.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelRegister_LinkClicked);
-            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 23F);
@@ -128,11 +132,13 @@
             this.ClientSize = new System.Drawing.Size(430, 450);
             this.Controls.Add(this.groupBoxLogin);
             this.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(5);
             this.MaximumSize = new System.Drawing.Size(446, 489);
             this.MinimumSize = new System.Drawing.Size(446, 489);
             this.Name = "LoginForm";
-            this.Text = "Авторизация";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "ProSoft - Авторизация";
             this.groupBoxLogin.ResumeLayout(false);
             this.groupBoxLogin.PerformLayout();
             this.ResumeLayout(false);

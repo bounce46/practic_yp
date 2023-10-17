@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Resources;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -24,27 +25,34 @@ namespace ProSoft.Forms
             ProSoftEntities proSoftEntities = new ProSoftEntities();
             if (textBoxLogin.Text != "" && textBoxPassword.Text != "")
             {
-                foreach (var item in proSoftEntities.adminTable)
-                {
-                    if (textBoxLogin.Text == item.login &&
-                        textBoxPassword.Text == item.password)
-                    {
-                        MessageBox.Show("Успешный вход", "Успех", MessageBoxButtons.OK);
-                        AdminForm adminForm = new AdminForm();
-                        this.Hide();
-                        adminForm.ShowDialog();
-                        this.Show();
-                        return;
-                    }
-                }
+                //foreach (var item in proSoftEntities.adminTable)
+                //{
+                //    if (textBoxLogin.Text == item.login &&
+                //        textBoxPassword.Text == item.password)
+                //    {
+                //        MessageBox.Show("Успешный вход", "Успех", MessageBoxButtons.OK);
+                //        AdminForm adminForm = new AdminForm();
+                //        this.Hide();
+                //        adminForm.ShowDialog();
+                //        this.Show();
+                //        return;
+                //    }
+                //}
                 foreach (var item in proSoftEntities.userTable)
                 {
                     if (textBoxLogin.Text == item.login &&
                         textBoxPassword.Text == item.password)
                     {
+                        
                         DataClass.IdUser = item.id_user;
+                        
                         MessageBox.Show("Успешный вход", "Успех", MessageBoxButtons.OK);
                         MainForm mainForm = new MainForm();
+                        mainForm.labelName.Text = item.last_name;
+                        if (item.id_sex == 1)
+                            mainForm.pictureBoxPhoto.Image = Properties.Resources.free_icon_young_man_8193910;
+                        else
+                            mainForm.pictureBoxPhoto.Image = Properties.Resources.free_icon_woman_8193922;
                         this.Hide();
                         mainForm.ShowDialog();
                         this.Show();

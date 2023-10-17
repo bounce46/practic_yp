@@ -27,7 +27,8 @@ namespace ProSoft.Forms
             for (int i = 0; i < product.Count; i++)
             {
                 Order orderItem = new Order();
-                orderItem.NameN = product[i].product_name;
+                orderItem.NameN = "Наименование: "+
+                    product[i].product_name;
                 orderItem.PriceP = "Цена: " + product[i].product_price + " рублей";
                 orderItem.Idsx = product[i].id_product;
                 orderPanel.Controls.Add(orderItem);
@@ -39,6 +40,16 @@ namespace ProSoft.Forms
             this.Hide();
             cartForm.ShowDialog();
             this.Show();
+        }
+
+        private void buttonBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void labelName_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

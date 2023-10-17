@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -22,6 +23,7 @@ namespace ProSoft.Modules
         private string Description;
         private string Price;
         private int idsx;
+        Color color;
         public string NameN
         {
             get { return Names; }
@@ -53,6 +55,16 @@ namespace ProSoft.Modules
                 id_product = idsx,
             });
             proSoftEntities.SaveChanges();
+        }
+
+        private void Order_MouseEnter(object sender, EventArgs e)
+        {
+            this.BackColor = Color.Silver;
+        }
+
+        private void Order_MouseLeave(object sender, EventArgs e)
+        {
+            this.BackColor = Color.White;
         }
     }
 }

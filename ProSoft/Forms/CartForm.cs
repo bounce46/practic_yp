@@ -30,16 +30,21 @@ namespace ProSoft.Forms
                 if (item.id_user == memory)
                 {
                     Order orderItem = new Order();
-                    orderItem.NameN = "Наименование: " + product[item.id_product-1].product_name.ToString();
-                    orderItem.PriceP = "Цена: " + product[item.id_product-1].product_price + " рублей".ToString();
-                    orderItem.DescriptionD = "Описание: " + product[item.id_product-1].product_description.ToString();
+                    orderItem.NameN = "Наименование: " + 
+                        product[item.id_product-1].product_name.ToString();
+                    orderItem.PriceP = "Цена: " + 
+                        product[item.id_product-1].product_price + " рублей".ToString();
+                    orderItem.DescriptionD = "Описание: " + 
+                        product[item.id_product-1].product_description.ToString();
                     orderItem.buttonAddCart.Visible = false;
                     OrderPanel.Controls.Add(orderItem);
                 }
-                else
-                {
-                }
             }
+        }
+
+        private void buttonBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
